@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Sonata\AdminBundle\Form\Type\ModelType;
 
 class BlogPostAdmin extends AbstractAdmin
 {
@@ -24,11 +25,16 @@ class BlogPostAdmin extends AbstractAdmin
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
+//            3.3.1. Utilisation du type de modèle Sonate
+            ->add('category', ModelType::class, [
+                'class' => Category::class,
+                'property' => 'name',
+            ])
         ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        // ... configure $listMapper
+        //
     }
 }
