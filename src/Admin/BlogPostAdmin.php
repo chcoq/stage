@@ -8,6 +8,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use App\Entity\Category;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class BlogPostAdmin extends AbstractAdmin
 {
@@ -17,6 +19,11 @@ class BlogPostAdmin extends AbstractAdmin
         $formMapper
             ->add('title', TextType::class)
             ->add('body', TextareaType::class)
+//            3.3. Ajout de champs référençant d'autres modèles
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'choice_label' => 'name',
+            ])
         ;
     }
 
