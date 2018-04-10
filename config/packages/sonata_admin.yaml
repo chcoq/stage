@@ -52,7 +52,7 @@ sonata_admin:
         use_icheck: true
         use_bootlint: false
         use_stickyforms: true
-        pager_links: null
+        pager_links: 0
         form_type: standard
         dropdown_number_groups_per_colums:  2
         title_mode: ~ # One of "single_text"; "single_image"; "both"
