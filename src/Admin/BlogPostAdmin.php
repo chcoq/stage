@@ -52,6 +52,10 @@ class BlogPostAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        //
+        //4.1. Configuration du mappeur de liste
+        $listMapper
+            ->add('title')
+            ->add('draft')
+        ;
     }
 }
