@@ -20,7 +20,20 @@ class Category
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+    /**
+     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
+     */
+    private $blogPosts;
 
+    public function __construct()
+    {
+        $this->blogPosts = new ArrayCollection();
+    }
+
+    public function getBlogPosts()
+    {
+        return $this->blogPosts;
+    }
     public function getId()
     {
         return $this->id;
