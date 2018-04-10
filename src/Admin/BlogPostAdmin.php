@@ -18,18 +18,24 @@ class BlogPostAdmin extends AbstractAdmin
     {
 //        3.2. Configuration du mappeur de formulaire
         $formMapper
-            ->add('title', TextType::class)
-            ->add('body', TextareaType::class)
+            ->with('Content')//3.4. Utilisation de groupes
+                ->add('title', TextType::class)
+                ->add('body', TextareaType::class)
+            ->end()
+
+            ->with('Meta data')//3.4. Utilisation de groupes
 //            3.3. Ajout de champs référençant d'autres modèles
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
             ])
+
 //            3.3.1. Utilisation du type de modèle Sonate
-            ->add('category', ModelType::class, [
-                'class' => Category::class,
-                'property' => 'name',
-            ])
+                ->add('category', ModelType::class, [
+                    'class' => Category::class,
+                    'property' => 'name',
+                ])
+            ->end()
         ;
     }
 
