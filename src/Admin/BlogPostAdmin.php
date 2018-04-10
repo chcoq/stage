@@ -54,7 +54,9 @@ class BlogPostAdmin extends AbstractAdmin
     {
         //4.1. Configuration du mappeur de liste
         $listMapper
-            ->add('title')
+            ->addIdentifier('title')
+            //4.1.2. Affichage d'autres modèles
+            ->add('category.name')
             ->add('draft')
         ;
     }
