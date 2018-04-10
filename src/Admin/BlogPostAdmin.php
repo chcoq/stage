@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use App\Entity\Category;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
 class BlogPostAdmin extends AbstractAdmin
 {
@@ -59,5 +60,10 @@ class BlogPostAdmin extends AbstractAdmin
             ->add('category.name')
             ->add('draft')
         ;
+    }
+//4.2. Ajouter des options de filtre / recherche
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('title');
     }
 }
