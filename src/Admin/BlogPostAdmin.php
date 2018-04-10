@@ -14,6 +14,13 @@ use Sonata\AdminBundle\Form\Type\ModelType;
 
 class BlogPostAdmin extends AbstractAdmin
 {
+    public function toString($object)//permet de sérialiser les chaine de caractère
+    {
+        return $object instanceof BlogPost
+            ? $object->getTitle()
+            : 'Blog Post'; // shown in the breadcrumb on the create view
+    }
+
     protected function configureFormFields(FormMapper $formMapper)
     {
 //        3.2. Configuration du mappeur de formulaire
