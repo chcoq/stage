@@ -64,6 +64,23 @@ class BlogPostAdmin extends AbstractAdmin
 //4.2. Ajouter des options de filtre / recherche
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('title');
+        $datagridMapper->add('title')
+            ->add('category', null, [], EntityType::class, [
+                'class'    => Category::class,
+                'choice_label' => 'name',
+            ])
+        ;
     }
+//4.2.1. Filtrage par catégorie
+//    public function add(
+//        $name,
+//
+//        // filter
+//        $type = null,
+//        array $filterOptions = [],
+//
+//        // field
+//        $fieldType = null,
+//        $fieldOptions = null
+//    )
 }

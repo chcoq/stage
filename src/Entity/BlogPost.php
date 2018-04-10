@@ -27,24 +27,24 @@ class BlogPost
     private $body;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(name="draft", type="boolean")
      */
+    private $draft = false;
+
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogPosts")
      */
     private $category;
-
-    public function setCategory(Category $category)
-    {
-        $this->category = $category;
-    }
 
     public function getCategory()
     {
         return $this->category;
     }
 
-    private $draft = false;
+    public function setCategory(Category $category)
+    {
+        $this->category = $category;
+    }
 
     public function getId()
     {
