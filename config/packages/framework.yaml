@@ -1,4 +1,6 @@
 framework:
+#1.5. Activer le service "traducteur"
+    translator: { fallbacks: ["%locale%"] }
     secret: '%env(APP_SECRET)%'
     #default_locale: en
     #csrf_protection: true
